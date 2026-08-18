@@ -1,0 +1,26 @@
+.TH BEMACS 1 "2026-08-14" "bedit 0.1.1" "User Commands"
+.SH NAME
+bemacs \- edit files and write tracked changes into the bedit repository
+.SH SYNOPSIS
+.B bemacs
+.I FILE
+.RI [ FILE ...]
+.SH DESCRIPTION
+.B bemacs
+launches
+.B emacs
+for the supplied file targets. Before editing, it snapshots the current file
+payload into the bedit repository. After editing, it stores a unified diff and
+an access record when the file changed.
+.PP
+The repository location follows the same rules as
+.BR bedit (1):
+.B BEDIT_HOME
+overrides the default home directory, and the rc file is read from
+.I $BEDIT_HOME/.bedit
+when that environment variable is present.
+.PP
+These shims accept file targets only. Repository inspection commands belong to
+.BR bedit (1).
+.SH SEE ALSO
+.BR bedit (1)

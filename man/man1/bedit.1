@@ -1,0 +1,98 @@
+.TH BEDIT 1 "2026-08-14" "bedit 0.1.1" "User Commands"
+.SH NAME
+bedit \- review tracked file history, revisions, search results, and restore points
+.SH SYNOPSIS
+.B bedit
+.BI -r " FILE [REV]"
+.br
+.B bedit
+.BI -g " FILE [REV]"
+.br
+.B bedit
+.BI -s " TERM"
+.br
+.B bedit
+.BI -s " FILE TERM"
+.br
+.B bedit
+.BI -w " FILE"
+.br
+.B bedit
+.BI -d " FILE REV1 REV2"
+.br
+.B bedit
+.BI -h " [FILE]"
+.br
+.B bedit
+.BI -ls " [.|DIR|FILE|*]"
+.br
+.B bedit
+.B --version
+.SH DESCRIPTION
+.B bedit
+opens the interactive terminal history UI when run bare on a terminal, and reads
+or mutates the tracked revision store when invoked with explicit CLI options.
+.PP
+Command ownership:
+.TP
+.B --version, -V
+Print the installed Bedit version without opening the repository or TUI.
+.TP
+.B -r, -restore FILE [REV]
+Restore FILE to REV. If REV is omitted, restores the latest stored revision.
+.TP
+.B -g, -get FILE [REV]
+Print a stored revision to stdout. If REV is omitted, prints the latest stored revision.
+.TP
+.B -s, -search TERM
+Search all tracked revisions of all tracked files.
+.TP
+.B -s, -search FILE TERM
+Search all tracked revisions of FILE.
+.TP
+.B -w, -where FILE
+Show tracked paths for FILE.
+.TP
+.B -d, -diff FILE REV1 REV2
+Diff two stored revisions.
+.TP
+.B -h, -history [FILE]
+Show history for all tracked files, or only FILE when given.
+.TP
+.B -ls [.|DIR|FILE|*]
+List stored history artifacts in the selected scope. The default scope is the
+current directory; DIR selects files directly in that directory, FILE selects
+one tracked file, and * selects all tracked paths. Output columns are
+.B FILE  REV  TYPE  WHEN  EDIT  USER,
+where TYPE identifies access metadata, a backup payload, or a diff; EDIT is the
+recorded editor and USER is the recorded actor. Rows are newest first by default.
+.SH SEARCH OUTPUT
+Search output is grouped by file and revision.
+.PP
+.nf
+FILE: /root/a.txt
+  rev 1:
+    1: one
+  rev 2:
+    1: one
+.fi
+.SH FILES
+.TP
+.I ~/bedit/access
+access records
+.TP
+.I ~/bedit/backups
+stored revision payloads
+.TP
+.I ~/bedit/edits
+stored diffs
+.TP
+.I ~/bedit/dirs
+directory metadata and links
+.SH SEE ALSO
+.BR bvi (1),
+.BR bnvim (1),
+.BR bed (1),
+.BR bnano (1),
+.BR bemacs (1),
+.BR bpico (1)

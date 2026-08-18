@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+SELF_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+RUST_DIR=${BEDIT_RUST_BIN_DIR:-"$SELF_DIR/../target/debug"}
+exec "$RUST_DIR/bnano-rust" "$@"

@@ -1,0 +1,22 @@
+.TH BVI 1 "2026-08-14" "bedit 0.1.1" "User Commands"
+.SH NAME
+bvi \- tracked vi wrapper for the bedit revision store
+.SH SYNOPSIS
+.B bvi
+.I FILE ...
+.SH DESCRIPTION
+.B bvi
+opens files in
+.B vi
+and records tracked access, backups, diffs, and revision history in the
+.B bedit
+filesystem store.
+.PP
+.B bvi
+owns file-editing only. Repo review commands belong to
+.BR bedit (1).
+.SH NOTES
+Each tracked edit session snapshots the file before edit, launches the editor,
+and if content changed stores a new revision record.
+.SH SEE ALSO
+.BR bedit (1)

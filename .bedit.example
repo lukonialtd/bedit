@@ -1,0 +1,9 @@
+Access=~/bedit/access
+Backups=~/bedit/backups
+Edits=~/bedit/edits
+Dirs=~/bedit/dirs
+keepBackupIfNoEdit=1
+ColorDiff=1
+DiffTailLines=20
+EnableEditorLocks=0
+exclude=*.log,*::_::a,*::_::b,*::_::d
