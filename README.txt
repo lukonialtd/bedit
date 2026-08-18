@@ -21,9 +21,11 @@ installs default to transparent mode. Sudo history defaults to root-and-user.
 Prebuilt archives are produced for Linux x86_64/ARM64 and macOS Intel/Apple
 Silicon. GitHub release provenance can be checked with `gh attestation verify`.
 Linux archives support installation and revision-producing editor workflows.
-macOS archives currently support native metadata commands and the read-only
-history model. CLI/TUI startup, secure installation, and all repository mutation
-fail closed until a native trusted-FD backend exists.
+macOS archives support normal-user installation below the user's home directory
+and revision-producing editor workflows using descriptor-relative repository
+mutation, including history, diffs, restore/get, and TUI presentation. macOS
+system installation and `root_and_user` privileged mirroring remain unsupported
+and fail closed.
 
 BUILD IT YOURSELF
 
